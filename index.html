@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #map {
+      height: 300px;
+      width: 50%;
+      margin-left: 100px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Venaurant</h3>
+  <form id="foo">
+    <label for="address">Your Venue</label>
+    <input id="address" name="address" required>
+    <input type="submit">
+  </form>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      var uluru = {
+        lat: 39.7559,
+        lng: -104.9942
+      };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Zi3ek-4fvvuhI_ioVTMwXhfJ4qp3vaw&callback=initMap">
+</script>
+
+  <script type="js/index.js" charset="utf-8"</script>
+  <script type="text/index.css" charset="utf-8"</script>
+</body>
+
+</html>
