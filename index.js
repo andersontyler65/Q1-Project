@@ -4,12 +4,12 @@ function initMap() {
       lat: 40.01685,
       lng: -105.2816839
     },
-    zoom: 13,
+    zoom: 10,
     mapTypeId: 'roadmap'
   });
   var infowindow = new google.maps.InfoWindow({
 
-        });
+  });
 
   var service = new google.maps.places.PlacesService(map);
   // Create the search box and link it to the UI element.
@@ -26,7 +26,7 @@ function initMap() {
   // more details for that place.
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
-      console.log(places)
+    console.log(places)
     if (places.length == 0) {
       return;
     }
@@ -59,7 +59,7 @@ function initMap() {
         title: place.name,
         position: place.geometry.location
       }));
-        //console.log("marker")
+      //console.log("marker")
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
@@ -70,9 +70,9 @@ function initMap() {
     });
     map.fitBounds(bounds);
     service.nearbySearch({
-        location: map.center,
-        radius: 500,
-        type: ['restaurants', 'restaurant', 'bars', 'nightclubs', 'brewery', 'food', 'drink']
+      location: map.center,
+      radius: 500,
+      type: ['restaurants', 'restaurant', 'bars', 'nightclubs', 'brewery', 'food', 'drink']
     }, callback);
     console.log(map.center.lng(), map.center.lat())
 
@@ -84,6 +84,7 @@ function initMap() {
       }
       console.log(results)
     }
+
     function createMarker(place) {
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
@@ -92,9 +93,9 @@ function initMap() {
         position: place.geometry.location
       });
       marker.addListener('click', function() {
-          infowindow.setContent("<h3>"+place.name+"</h3><div> Desc:Food & Beverage </div>");
-          infowindow.open(map, marker);
-        });
+        infowindow.setContent("<h3>" + place.name + "</h3><div> Desc: Food & Beverage </div>");
+        infowindow.open(map, marker);
+      });
     }
   });
 }

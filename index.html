@@ -4,28 +4,46 @@
 <head>
   <style>
     #map {
-      height: 400px;
-      width: 50%;
+      height: 500px;
+      width: 100%;
       margin-top: 10px;
     }
   </style>
-  <script src="index.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
-  <h3>Venaurant</h3>
-  <!-- <form class="foo">
-    <label for="address">Your Venue</label> -->
-    <input id="address" name="address" placeholder="Venue">
-    <!-- <input id="call" type="submit"> -->
+
+    <nav>
+      <div id="secondPageHeader">
+        <a href="file:///Users/Tyler/Galvanize/Q1-Project/parallax-template%202/index.html" class="brand-logo center"><h1>Venaurant</h1></a>
+      </div>
+    </nav>
+
+  <input id="address" name="address" placeholder="Enter Venue Here">
+  <!-- <input id="call" type="submit"> -->
   <!-- </form> -->
   <div id="map"></div>
-  <div style="color: black;"class="tyler">
-  </div>
-  <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Zi3ek-4fvvuhI_ioVTMwXhfJ4qp3vaw&libraries=places&callback=initMap">
-</script>
+
+  <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            </div>
+          </div>
+        </footer>
+
+  <!--scripts-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Zi3ek-4fvvuhI_ioVTMwXhfJ4qp3vaw&libraries=places&callback=initMap"></script>
+  <script src="index.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="index.css">
 
 </body>
 
