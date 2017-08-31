@@ -71,8 +71,8 @@ function initMap() {
     map.fitBounds(bounds);
     service.nearbySearch({
       location: map.center,
-      radius: 500,
-      type: ['restaurants', 'restaurant', 'bars', 'nightclubs', 'brewery', 'food', 'drink']
+      radius: 600,
+      type: ['restaurants', 'bars', 'nightclubs', 'brewery' , 'tavern', 'restaurant' , 'pub' , 'food']
     }, callback);
     console.log(map.center.lng(), map.center.lat())
 
@@ -87,15 +87,28 @@ function initMap() {
 
     function createMarker(place) {
       var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
-        map: map,
-        title: place.name,
-        position: place.geometry.location
-      });
-      marker.addListener('click', function() {
-        infowindow.setContent("<h3>" + place.name + "</h3><div> Desc: Food & Beverage </div>");
-        infowindow.open(map, marker);
-      });
+      var id = place.place_id;
+      //console.log("id is ", id);
+      var detailRequest = {placeId: id};
+      // console.log("detailRequest is ",detailRequest);
+      // service.getDetails({
+      //           placeId: id})
+      service.getDetails(place, function(destination, status){
+          //  console.log("destination is ", destination, " status is ", status);
+        var marker = new google.maps.Marker({
+          map: map,
+          title: place.name,
+          position: place.geometry.location,
+          address: destination.formatted_address,
+          phoneNum: destination.formatted_phone_number,
+          url: destination.website,
+        });
+
+        marker.addListener('click', function() {
+          infowindow.setContent("<h3>" + place.name + "</h3>" + marker['phoneNum'] + "<br>" + marker['address'] + "<br>" + marker['url'] + "<div> Desc: Food & Beverage </div>");
+          infowindow.open(map, marker);
+        });
+      })
     }
   });
 }
