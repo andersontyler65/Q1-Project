@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+    <nav>
+      <div id="secondPageHeader">
+        <a href="index.html"><h1>Venurant</h1></a>
+      </div>
+    </nav>
+
+  <input id="address" name="address" placeholder="Enter Venue Here">
+  <!-- <input id="call" type="submit"> -->
+  <!-- </form> -->
+  <div id="map"></div>
+
+  <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Venurant</h5>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © Tyler Anderson
+            </div>
+          </div>
+        </footer>
+
+  <!--scripts-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Zi3ek-4fvvuhI_ioVTMwXhfJ4qp3vaw&libraries=places&callback=initMap"></script>
+  <script src="index.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="index.css">
+
+</body>
+
+</html>
